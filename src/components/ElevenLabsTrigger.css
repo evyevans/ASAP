@@ -1,0 +1,362 @@
+/* ================================================================
+   F.U.S.C — Follow Up Success Coach
+   Light Theme / Parchment Adaptation
+   Aceternity-inspired blend: Lamp Section Header + Gradient Animation
+   ================================================================ */
+
+/* ── Page shell ── */
+.fusc-page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  /* Light parchment background */
+  background: var(--color-bg-primary, #EBEAE4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ================================================================
+   BACKGROUND GRADIENT ANIMATION
+   Adapted for a light theme using multiply/soft blending
+   ================================================================ */
+.fusc-gradient-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  /* Soft warm glow fading to transparent */
+  background: radial-gradient(ellipse at 60% 45%, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+}
+
+.fusc-gradient-blobs {
+  position: absolute;
+  inset: 0;
+  /* Heavy blur for soft merging */
+  filter: blur(60px);
+}
+
+.fusc-blob {
+  position: absolute;
+  border-radius: 50%;
+  /* Multiply blending works best on light backgrounds to merge colors */
+  mix-blend-mode: multiply;
+  will-change: transform;
+}
+
+/* On light bg, use very soft amber/gold/beige tones */
+.fusc-blob--1 {
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  background: radial-gradient(circle at center, rgba(234, 179, 8, 0.25) 0%, transparent 60%);
+  transform-origin: center 60%;
+  animation: bgMoveVertical 30s ease infinite;
+}
+
+.fusc-blob--2 {
+  width: 70%;
+  height: 70%;
+  top: 15%;
+  left: 15%;
+  background: radial-gradient(circle at center, rgba(161, 98, 7, 0.2) 0%, transparent 60%);
+  transform-origin: calc(50% - 200px) 50%;
+  animation: bgMoveInCircle 20s reverse infinite;
+}
+
+.fusc-blob--3 {
+  width: 60%;
+  height: 60%;
+  top: 20%;
+  left: 20%;
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.22) 0%, transparent 60%);
+  transform-origin: calc(50% + 200px) 50%;
+  animation: bgMoveInCircle 40s linear infinite;
+}
+
+.fusc-blob--4 {
+  width: 70%;
+  height: 70%;
+  top: 15%;
+  left: 15%;
+  background: radial-gradient(circle at center, rgba(217, 119, 6, 0.18) 0%, transparent 60%);
+  transform-origin: calc(50% - 100px) 50%;
+  animation: bgMoveHorizontal 40s ease infinite;
+}
+
+.fusc-blob--5 {
+  width: 55%;
+  height: 55%;
+  top: 22%;
+  left: 22%;
+  background: radial-gradient(circle at center, rgba(245, 158, 11, 0.15) 0%, transparent 60%);
+  transform-origin: calc(50% - 800px) calc(50% + 200px);
+  animation: bgMoveInCircle 20s ease infinite;
+}
+
+@keyframes bgMoveVertical {
+  0%   { transform: translateY(-50%); }
+  50%  { transform: translateY(50%); }
+  100% { transform: translateY(-50%); }
+}
+@keyframes bgMoveInCircle {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes bgMoveHorizontal {
+  0%   { transform: translateX(-50%) translateY(-10%); }
+  50%  { transform: translateX(50%) translateY(10%); }
+  100% { transform: translateX(-50%) translateY(-10%); }
+}
+
+.fusc-gradient-interactive {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(212, 175, 55, 0.08) 0%,
+    transparent 40%
+  );
+  transition: background 0.15s ease;
+  pointer-events: none;
+}
+
+/* ================================================================
+   LAMP SECTION HEADER
+   Adapted for light background — using orange/gold dark gradients 
+   so the lamp is visible against the whiteish page.
+   ================================================================ */
+.fusc-lamp-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-top: 4rem;
+  flex-shrink: 0;
+  isolation: isolate;
+}
+
+.fusc-lamp-arm-left {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(calc(-50% - 2px));
+  width: min(50%, 400px);
+  height: 240px;
+  background: conic-gradient(
+    from 70deg at right center,
+    rgba(161, 98, 7, 0.0) 0deg,
+    rgba(161, 98, 7, 0.15) 90deg,
+    rgba(161, 98, 7, 0.0) 90deg
+  );
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.fusc-lamp-arm-right {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-2px);
+  width: min(50%, 400px);
+  height: 240px;
+  background: conic-gradient(
+    from 180deg at left center,
+    rgba(161, 98, 7, 0.0) 0deg,
+    rgba(161, 98, 7, 0.15) 90deg,
+    rgba(161, 98, 7, 0.0) 90deg
+  );
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.fusc-lamp-cone {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(620px, 90vw);
+  height: 340px;
+  background: conic-gradient(
+    from 180deg at 50% 0%,
+    rgba(161, 98, 7, 0.0)   0deg,
+    rgba(161, 98, 7, 0.0)   58deg,
+    rgba(161, 98, 7, 0.08) 72deg,
+    rgba(161, 98, 7, 0.20) 90deg,
+    rgba(161, 98, 7, 0.08) 108deg,
+    rgba(161, 98, 7, 0.0)  122deg,
+    rgba(161, 98, 7, 0.0)  360deg
+  );
+  pointer-events: none;
+}
+
+.fusc-lamp-bar {
+  position: relative;
+  height: 2px;
+  width: min(480px, 75vw);
+  background: linear-gradient(
+    90deg,
+    transparent  0%,
+    rgba(212, 175, 55, 0.0)  8%,
+    rgba(212, 175, 55, 0.82) 50%,
+    rgba(212, 175, 55, 0.0)  92%,
+    transparent  100%
+  );
+  box-shadow: 0 0 14px 1px rgba(212, 175, 55, 0.6);
+  z-index: 2;
+}
+
+.fusc-lamp-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #A16207;
+  box-shadow:
+    0 0 6px  3px  rgba(161, 98, 7, 0.8),
+    0 0 28px 8px rgba(161, 98, 7, 0.4);
+}
+
+/* ── Main scrollable content ── */
+.fusc-scroll {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2.5rem 2rem 5rem;
+  text-align: center;
+  flex: 1;
+}
+
+/* ── Heading ── */
+.fusc-heading {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--color-text-primary, #11100F);
+  margin: 0 0 0.75rem;
+}
+
+.fusc-heading-name {
+  font-weight: 800;
+  /* Darker gold gradient text for light mode */
+  background: linear-gradient(135deg, #A16207 0%, #D4AF37 50%, #713F12 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.25));
+}
+
+/* ── Sub-heading ── */
+.fusc-subheading {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-text-secondary, #58544F);
+  max-width: 520px;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.fusc-subheading-accent {
+  color: #A16207;
+  font-weight: 800;
+}
+
+.fusc-subheading-dim {
+  font-size: 0.9rem;
+  color: var(--color-text-tertiary, #8C867C);
+  font-weight: 400;
+}
+
+/* ── Decorative vertical fade ── */
+.fusc-divider {
+  width: 1px;
+  height: 2.5rem;
+  background: linear-gradient(to bottom, rgba(161, 98, 7, 0.4), transparent);
+  margin: 2.5rem auto 1.5rem;
+}
+
+/* ── Status pulse row ── */
+.fusc-status-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.fusc-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #A16207;
+  box-shadow: 0 0 6px 3px rgba(161, 98, 7, 0.4);
+  animation: fusc-pulse 2.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.fusc-status-dot--inactive {
+  background: rgba(161, 98, 7, 0.25);
+  box-shadow: 0 0 6px 3px rgba(161, 98, 7, 0.1);
+}
+
+@keyframes fusc-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.3); }
+}
+
+.fusc-status-label {
+  color: #64748B;
+  font-size: 0.70rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* ── Voice widget (fixed bottom-right) ── */
+.fusc-widget-anchor {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+}
+
+.fusc-consent-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid rgba(161, 98, 7, 0.4);
+  background: linear-gradient(145deg, rgba(26, 25, 24, 0.95), rgba(15, 14, 13, 0.95));
+  color: #D4AF37;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.3), 
+    0 0 30px rgba(161, 98, 7, 0.15);
+  backdrop-filter: blur(8px);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.fusc-consent-btn:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 6px 24px rgba(0,0,0,0.4), 
+    0 0 40px rgba(161, 98, 7, 0.25);
+}
+
+.fusc-consent-btn:active {
+  transform: scale(0.96);
+}

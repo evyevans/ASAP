@@ -1,0 +1,14 @@
+node_modules/
+dist/
+dist-ssr/
+.vercel/
+.env
+.env.*
+*.local
+*.log
+*.tsbuildinfo
+.DS_Store
+.idea/
+.vscode/
+coverage/
+.cache/

@@ -1,0 +1,60 @@
+.metric-card {
+  padding: var(--space-5) var(--space-6);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 200px;
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent, var(--brand-400)), transparent);
+  opacity: 0.5;
+}
+
+.metric-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.metric-card__icon {
+  font-size: 1.25rem;
+}
+
+.metric-card__value-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.metric-card__unit {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--neutral-500);
+}
+
+.metric-card__label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--neutral-500);
+  letter-spacing: var(--tracking-wide);
+}
+
+.metric-card__sparkline {
+  margin-top: var(--space-2);
+  height: 32px;
+  opacity: 0.8;
+}
+
+.metric-card__sparkline svg {
+  width: 100%;
+  height: 100%;
+}

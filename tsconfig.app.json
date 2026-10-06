@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2023",
+    "useDefineForClassFields": true,
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "types": ["vite/client"],
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": ["src"],
+  "exclude": [
+    "src/pixel-engine/assets-shared",
+    /* iCloud conflict copies ("agentState 2.ts", "Office 3.tsx", …). ~95 of them
+       live under src/, and `include: ["src"]` was typechecking every one under
+       strict + noUnusedLocals — which quietly made "the build passed" stop being
+       a meaningful signal. Excluded rather than deleted: there are ~5,000
+       uncommitted lines and unstaged deletions in this tree, and a parallel
+       session is working in it. Deleting them is a separate, deliberate cleanup. */
+    "src/**/* [0-9].ts",
+    "src/**/* [0-9].tsx",
+
+    /* Node-using test infrastructure. Typechecked by tsconfig.node.json, which
+       has `types: ["node"]`. Kept out of here so browser code cannot import
+       node builtins without a type error. Keep in sync with that file's
+       include list. */
+    "src/testkit",
+    "src/architecture.test.ts",
+    "src/matching/denoCompat.test.ts",
+    "src/matching/fingerprint.test.ts",
+    "src/security"
+  ]
+}
