@@ -1,8 +1,10 @@
 # ASAP Showcase
 
 <p align="center">
-  <img src="public/asap-github-banner.svg" alt="ASAP — Your target, reverse-engineered into every day" width="100%" />
+  <img src="public/asap-github-banner.jpeg" alt="ASAP — Your target, reverse-engineered into every day" width="100%" />
 </p>
+
+**Live on GitHub · October 6, 2026**
 
 An interactive real estate workflow showcase with fictional sample data.
 
