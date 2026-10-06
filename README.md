@@ -1,5 +1,9 @@
 # ASAP Showcase
 
+<p align="center">
+  <img src="public/asap-github-banner.svg" alt="ASAP — Your target, reverse-engineered into every day" width="100%" />
+</p>
+
 An interactive real estate workflow showcase with fictional sample data.
 
 Live reference: https://asap-showcase.vercel.app
