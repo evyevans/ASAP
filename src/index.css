@@ -1076,3 +1076,20 @@ nav[aria-label="Primary"] a:hover { color: var(--color-text-primary); }
   box-shadow: 0 4px 12px rgba(20, 18, 16, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
   transition-duration: var(--dur-micro) !important;
 }
+
+/* Home keeps motion quiet and makes every keyboard action visible. */
+.home-surface .home-control:focus-visible,
+.home-surface button:focus-visible,
+.home-surface summary:focus-visible {
+  outline: 2px solid var(--color-accent, #e8733a);
+  outline-offset: 4px;
+}
+.home-surface button {
+  min-height: 44px;
+}
+.home-surface .animate-fade-in {
+  animation: none;
+}
+
+.home-surface a.home-control { color: var(--color-text-secondary); }
+.home-surface a.home-control:hover { color: var(--color-text-primary); }

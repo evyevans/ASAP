@@ -32,6 +32,6 @@ The demo account is **Guest User**. The showcase uses a local demo store; no env
 
 This is a frontend demonstration. Accounts, live CRM integrations, external messaging, and production automation are not connected. The UI and sample data are preserved from the ASAP showcase.
 
-The package manifest and lockfile are retained from the source app. Backend functions, private deployment metadata, verification scripts, and test sources are omitted from this standalone copy. The original manifest's test and check:deno scripts are retained but are not supported in this showcase-only repository.
+The package manifest and lockfile are retained from the source app. Backend functions, private deployment metadata, verification scripts, and original backend test sources are omitted from this standalone copy. Run `npm test` for the focused Home calendar-selection tests. The original `check:deno` script is retained but is not supported in this showcase-only repository.
 
 No license is granted beyond applicable default copyright rights unless the owner adds a license.

@@ -14,9 +14,9 @@ import Memory from './pages/Memory';
 const Clients = lazy(() => import('./pages/Clients'));
 const Scout = lazy(() => import('./pages/Scout'));
 const Calendar = lazy(() => import('./pages/Calendar'));
-/* Chat pulls in three.js for the animated core. Home no longer does — its hero
- * is a video now — so this is the only route that carries it, and it must stay
- * code-split or every tab pays for a ball only one of them shows. */
+/* Chat pulls in three.js for the animated core. Home does not. This is the
+ * only route that carries it, and it must stay code-split or every tab pays
+ * for a ball only one of them shows. */
 const Chat = lazy(() => import('./chat/ChatPage'));
 
 /** Matches the page padding, so a route swap does not jump the layout. */

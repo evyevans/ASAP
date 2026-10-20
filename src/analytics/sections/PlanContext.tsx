@@ -11,7 +11,7 @@ export function PlanContext({ planner }: { planner: PlannerContext | null }) {
   if (!planner || (!planner.goalIncome && !planner.primaryMarket && !planner.mainFocus)) return null;
   const market = shortMarket(planner.primaryMarket);
   return (
-    <div className="mt-4 flex items-start gap-2.5 rounded-2xl border border-border bg-bg-surface px-4 py-3">
+    <div className="flex items-start gap-2.5 rounded-2xl border border-border bg-bg-surface px-4 py-3">
       <Target size={15} className="text-accent mt-0.5 shrink-0" />
       <p className="text-sm text-text-secondary leading-snug">
         Working toward your{' '}
